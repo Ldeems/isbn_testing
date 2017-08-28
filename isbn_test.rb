@@ -14,4 +14,8 @@ def test_char_test
 	assert_equal(true, isbn_checker("0-321-14653-0"))
 end	
 
+def test_char_test_2
+	assert_equal(true, isbn_checker("0 321-14a53-0"))
+end	
+
 end	
