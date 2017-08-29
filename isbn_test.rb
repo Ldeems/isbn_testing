@@ -18,4 +18,8 @@ def test_char_test_2
 	assert_equal(true, isbn_checker("0 321-14a53-0"))
 end	
 
+def test_math_test_1
+	assert_equal(true, math_function("0471958697"))
+end	
+
 end	
