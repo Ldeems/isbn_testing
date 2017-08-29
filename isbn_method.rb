@@ -128,10 +128,10 @@ def isbn13math(x)
     x = 10 - y
     checksum = x % 10
     if checksum.to_i == arr[- 1].to_i
-    	p checksum
+    	
     	 true
     else
-    	p checksum 
+    	
     	 false
     end		
 end	
