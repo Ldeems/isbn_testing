@@ -42,6 +42,14 @@ def test_full_isbn10_test_3
 	assert_equal(true, isbn_full_check("877195869x"))
 end
 
+def test_full_isbn10_test_4
+	assert_equal(false, isbn_full_check("87-7194869x"))
+end
+
+def test_full_isbn10_test_5
+	assert_equal(false, isbn_full_check("a771s5869x"))
+end
+
 #----------------ISBN 13 TESTS BELOW THIS LINE----------------------------------------
 
 def test_isbn13_length_1
