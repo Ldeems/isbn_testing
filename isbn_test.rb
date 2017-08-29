@@ -72,4 +72,12 @@ def test_isbn13_math_4
 	assert_equal(true, isbn13full("978 0 471 48648 0"))
 end
 
+def test_isbn13_math_5
+	assert_equal(true, isbn13full("978-0-13-149505-0"))
+end
+
+def test_isbn13_math_6
+	assert_equal(false, isbn13full("978 0 571 48648 0"))
+end
+
 end	
