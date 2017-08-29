@@ -11,9 +11,9 @@ def isbn_checker(hat)
 
 	 hat.gsub!(/[^0-9A-Za-z]/, "")
 	if hat.length == 10
-		p true
+		 true
 	else
-		p false	
+		 false	
 	end	
 end
 
