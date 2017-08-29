@@ -22,4 +22,12 @@ def test_math_test_1
 	assert_equal(true, math_function("0471958697"))
 end	
 
+def test_math_test_1
+	assert_equal(false, math_function("0471958691"))
+end
+
+def test_math_test_1
+	assert_equal(false, math_function("047195869x"))
+end
+
 end	
