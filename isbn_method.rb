@@ -94,4 +94,47 @@ def isbn13check(x)
 	end	
 end
 
+def isbn13full(x)
+
+	x.gsub!(/[^0-9]/, '')
+	if x.length == 13
+		wow = isbn13math(x)
+		if x == true
+			true
+		else
+			false
+		end	
+	else
+		false	
+	end	
+end
+	
+def isbn13math(x)
+	arr = x.split(//)
+	newarr = []
+	count = 1
+	p arr
+	12.times do 
+		if count % 2 == 0
+			newarr << arr[count - 1].to_i * 3
+			count += 1
+		else
+			newarr << arr[count - 1].to_i * 1
+			count += 1
+		end	
+	end	
+	sum = newarr.sum
+    y = sum % 10
+    x = 10 - y
+    checksum = x % 10
+    if checksum.to_i == arr[- 1].to_i
+    	p checksum
+    	 true
+    else
+    	p checksum 
+    	 false
+    end		
+end	
+
+
  	

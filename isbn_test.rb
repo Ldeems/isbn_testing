@@ -56,4 +56,8 @@ def test_isbn13_length_1
 	assert_equal(true, isbn13check("978047-0059029"))
 end	
 
+def test_isbn13_math_1
+	assert_equal(true, isbn13math("9780470059029"))
+end
+
 end	
