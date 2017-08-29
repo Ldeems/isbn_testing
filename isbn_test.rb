@@ -30,4 +30,12 @@ def test_math_test_1
 	assert_equal(false, math_function("047195869x"))
 end
 
+
+
+#----------------ISBN 13 TESTS BELOW THIS LINE----------------------------------------
+
+def test_isbn13_length_1
+	assert_equal(true, isbn13check("978047-0059029"))
+end	
+
 end	
