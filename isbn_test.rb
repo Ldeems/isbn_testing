@@ -30,6 +30,9 @@ def test_math_test_1
 	assert_equal(false, math_function("047195869x"))
 end
 
+def test_full_isbn10_test_1
+	assert_equal(true, isbn_full_check("0471958697"))
+end	
 
 
 #----------------ISBN 13 TESTS BELOW THIS LINE----------------------------------------
