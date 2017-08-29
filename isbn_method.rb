@@ -99,7 +99,7 @@ def isbn13full(x)
 	x.gsub!(/[^0-9]/, '')
 	if x.length == 13
 		wow = isbn13math(x)
-		if x == true
+		if wow == true
 			true
 		else
 			false
@@ -113,7 +113,6 @@ def isbn13math(x)
 	arr = x.split(//)
 	newarr = []
 	count = 1
-	p arr
 	12.times do 
 		if count % 2 == 0
 			newarr << arr[count - 1].to_i * 3
