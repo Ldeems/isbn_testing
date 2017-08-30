@@ -1,5 +1,5 @@
 def isbn_size_check(n)
-	looking = n.gsub!(/[^0-9A-Za-z]/, '')
+	looking = n.gsub(/[^0-9A-Za-z]/, '')
 	if looking.length == 10
 		isbn_full_check(n)
 	else
