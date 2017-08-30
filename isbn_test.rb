@@ -67,16 +67,16 @@ class Test_isbn < Minitest::Test
 # 	assert_equal(false, isbn13math("9780770051029"))
 # end
 
-# def test_isbn13_math_4
-# 	assert_equal(true, isbn13full("978 0 471 48648 0"))
-# end
+def test_isbn13_full_1
+	assert_equal(true, isbn13full("978 0 471 48648 0"))
+end
 
-def test_isbn13_math_5
+def test_isbn13_full_2
 	assert_equal(true, isbn13full("978-0-13-149505-0"))
 end
 
-# def test_isbn13_math_6
-# 	assert_equal(false, isbn13full("978 0 571 48648 0"))
-# end
+def test_isbn13_full_3
+	assert_equal(false, isbn13full("978 0 571 48648 0"))
+end
 
 end	
