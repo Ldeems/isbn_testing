@@ -1,12 +1,13 @@
-def isbn_check(i)
-
-	if i.length == 10
-		true
+def isbn_size_check(n)
+	looking = n.gsub!(/[^0-9A-Za-z]/, '')
+	if looking.length == 10
+		isbn_full_check(n)
 	else
-	 	false
+	 	isbn13full(n)
 	end 		
 end	
 
+#-------------------------isbn10 things below this line---------------------------------------------
 
 def isbn_full_check(isbn)
 
@@ -80,30 +81,51 @@ end
 
 #---------------------------------------ISBN 13 STUFF BELOW THIS LINE------------------------------
 
-def isbn13check(x)
 
-	x.gsub!(/[^0-9]/, '')
-	
-	if x.length == 13
-		true
-	else
-		false	
-	end	
-end
 
 def isbn13full(x)
 
-	x.gsub!(/[^0-9]/, '')
-	if x.length == 13
-		wow = isbn13math(x)
-		if wow == true
-			true
+	thing = isbn13keycheck(x)
+	if thing == true
+		x.gsub!(/[^0-9]/, '')
+		if x.length == 13
+			wow = isbn13math(x)
+			if wow == true
+				true
+			else
+				false
+			end	
 		else
-			false
-		end	
+			false	
+		end
 	else
-		false	
+		false		
 	end	
+end
+
+def isbn13keycheck(x)
+
+ true_arr = []
+    valid_keys = ["0","1","2","3","4","5","6","7","8","9", " ", "-"]
+   
+    arr = x.split(//)
+ 
+    arr.each do |d|
+        if valid_keys.include?(d)
+            true_arr << true
+        else
+            true_arr << false
+        end
+    end
+    if true_arr.include?(false)
+    	
+        false
+
+    else
+    	
+        true
+    end
+
 end
 	
 def isbn13math(x)
