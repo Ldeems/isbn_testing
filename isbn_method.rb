@@ -7,24 +7,15 @@ def isbn_check(i)
 	end 		
 end	
 
-def isbn_checker(hat)
-
-	 hat.gsub!(/[^0-9A-Za-z]/, "")
-	if hat.length == 10
-		 true
-	else
-		 false	
-	end	
-end
 
 def isbn_full_check(isbn)
 
-	isbn.gsub!(/[^0-9A-Za-z]/, '')
-	arr = isbn.split(//)
 	valid_keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "x"]
-	if arr.length == 10
-		thing = key_checker(arr)
-			if thing == true
+	thing = key_checker(isbn)
+	if thing == true
+		isbn.gsub!(/[^0-9A-Za-z]/, '')
+		arr = isbn.split(//)
+			if arr.length == 10
 				some = math_function(arr)
 					if some == true
 						true
@@ -41,8 +32,11 @@ end
 
 def key_checker(arr)
     true_arr = []
-    valid_keys = ["0","1","2","3","4","5","6","7","8","9","x"]
-    arr.each do |x|
+    valid_keys = ["0","1","2","3","4","5","6","7","8","9","x", " ", "-"]
+   
+    newarr = arr.split(//)
+ 
+    newarr.each do |x|
         if valid_keys.include?(x)
             true_arr << true
         else
@@ -50,8 +44,11 @@ def key_checker(arr)
         end
     end
     if true_arr.include?(false)
+    	
         false
+
     else
+    	
         true
     end
 
