@@ -89,12 +89,16 @@ class Test_isbn < Minitest::Test
 
 #-----------------------------full isbn10 and isbn13 test----------------------------------------
 
-# def test_isbn13_full_1
-# 	assert_equal(true, isbn_size_check("978 0 471 48648 0"))
-# end
+def test_isbn10_or_isbn13_full_1
+	assert_equal(true, isbn_size_check("978 0 471 48648 0"))
+end
 
- def test_full_isbn10_test_1
+ def test_isbn10_or_isbn13_full_2
  	assert_equal(true, isbn_size_check("0471958697"))
  end
+
+ def test_isbn10_or_isbn13_full_3
+	assert_equal(false, isbn_size_check("978 @0 471 486%48 0"))
+end
 
 end	
