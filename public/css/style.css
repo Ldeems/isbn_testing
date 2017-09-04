@@ -1,0 +1,14 @@
+body{
+	background-image: url(/image/howls.jpg);
+	background-size: 100% 100%;
+	text-align: center;
+	font-size: 3vh;
+
+}
+
+header{
+	text-align: center;
+	font-size: 6vh;
+	font-weight: bold;
+
+}

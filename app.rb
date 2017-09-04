@@ -13,5 +13,6 @@ post '/number' do
 end
 
 get '/results' do
-	erb :results, locals:{number:session[:number]}
+	result = isbn_size_check(session[:number])
+	erb :results, locals:{number:session[:number], result:result}
 end	

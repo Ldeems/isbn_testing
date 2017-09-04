@@ -19,15 +19,18 @@ def isbn_full_check(isbn)
 			if arr.length == 10
 				some = math_function(arr)
 					if some == true
-						true
+						"valid"
 					else
-						false
+						#false
+						"invalid"
 					end		
 			else
-				false
+				#false
+				"invalid"
 			end	
 	else
-		false
+		#false
+		"invalid"
 	end		
 end	
 
