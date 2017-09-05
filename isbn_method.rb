@@ -59,12 +59,17 @@ def key_checker(arr)
 end
 
 def math_function(hmm)
+	bob = hmm.slice!(-1)
+	if hmm.include?("x")
+		false
+	else
+	hmm << bob	
 	y = 1
 	a = 0
 	newarr = []
 	b = hmm.length - 1
 	b.times do
-		newarr << hmm[a].to_i * y
+			newarr << hmm[a].to_i * y
 		y += 1
 		a += 1
 	end
@@ -79,7 +84,8 @@ def math_function(hmm)
 				 true	
 			else
 				 false	
-			end	
+			end
+	end			
 end 
 
 #---------------------------------------ISBN 13 STUFF BELOW THIS LINE------------------------------
