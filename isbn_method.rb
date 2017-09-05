@@ -94,15 +94,19 @@ def isbn13full(x)
 		if x.length == 13
 			wow = isbn13math(x)
 			if wow == true
-				true
+				#true
+				"valid"
 			else
-				false
+				#false
+				"invalid"
 			end	
 		else
-			false	
+			#false
+			"invalid"	
 		end
 	else
-		false		
+		#false
+		"invalid"		
 	end	
 end
 

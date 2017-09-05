@@ -26,4 +26,18 @@ end
 
 get '/cvs' do
 	erb :cvs, locals:{list:session[:list]}
+end
+
+post '/meth' do
+  redirect '/magic'
+end
+
+get '/magic' do
+	arr = []
+	magiclist = session[:list]
+	magiclist.each do |x|
+		a = isbn_size_check(x[1])
+		arr << a
+	end 
+	erb :magic, locals:{arr:arr}	
 end	
