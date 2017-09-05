@@ -5,8 +5,8 @@ enable :sessions
 
 
 get "/" do
-	session[:list] = CSV.read("input_isbn_file.csv")
-	erb :number, locals:{list:session[:list]}
+	
+	erb :number
 end
 
 post '/number' do
@@ -25,7 +25,8 @@ post '/csv' do
 end	
 
 get '/cvs' do
-	erb :cvs, locals:{list:session[:list]}
+	thecsv = CSV.read("input_isbn_file.csv")
+	erb :cvs, locals:{thecsv:thecsv}
 end
 
 post '/meth' do
@@ -34,10 +35,10 @@ end
 
 get '/magic' do
 	arr = []
-	magiclist = session[:list]
+	magiclist = CSV.read("input_isbn_file.csv")
 	magiclist.each do |x|
 		a = isbn_size_check(x[1])
 		arr << a
 	end 
-	erb :magic, locals:{arr:arr}	
+	erb :magic, locals:{arr:arr, magiclist:magiclist}	
 end	

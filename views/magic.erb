@@ -1,1 +1,24 @@
-<%=arr%>
+
+
+
+<%count = 0%>
+<%arr.each do |x|%>
+	<%magiclist[count] << x%>
+	<%count += 1%>
+<%end%>
+
+<br>
+<br>
+
+<%magiclist.each do |a|%>
+<%newcout = 1%>
+	<%a.each do |b|%>
+		<%if newcout < 3%>
+			<%=b%>,
+		<%else%>
+			<%=b%>
+		<%end%>
+		<%newcout += 1%>		
+	<%end%>
+	<br>	
+<%end%>		
