@@ -21,4 +21,14 @@
 		<%newcout += 1%>		
 	<%end%>
 	<br>	
-<%end%>		
+<%end%>	
+
+
+
+
+<%CSV.open("myfile.csv", "w") do |csv|%>
+	<%csv << ["Item", "Isbn", "valid or invalid"]%>
+	<%magiclist.each do |n|%>
+	  <%csv << n%>
+	<%end%>	
+<%end%>	
