@@ -10,13 +10,15 @@ end
 #-------------------------isbn10 things below this line---------------------------------------------
 
 def isbn_full_check(isbn)
-
+p "#{isbn} hereeeeeeeeeeeeeeeee"
 	valid_keys = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "x"]
 	thing = key_checker(isbn)
+	p "#{thing} overerererererer"
 	if thing == true
 		isbn.gsub!(/[^0-9A-Za-z]/, '')
 		arr = isbn.split(//)
 			if arr.length == 10
+				p "#{isbn} here"
 				some = math_function(arr)
 					if some == true
 						"valid"
@@ -36,7 +38,7 @@ end
 
 def key_checker(arr)
     true_arr = []
-    valid_keys = ["0","1","2","3","4","5","6","7","8","9","x", " ", "-"]
+    valid_keys = ["0","1","2","3","4","5","6","7","8","9","x", "X", " ", "-"]
    
     newarr = arr.split(//)
  
@@ -59,9 +61,12 @@ def key_checker(arr)
 end
 
 def math_function(hmm)
+	p "#{hmm} look here dmait"
 	bob = hmm.slice!(-1)
 	if hmm.include?("x")
 		false
+	elsif hmm.include?("X")
+		false		
 	else
 	hmm << bob	
 	y = 1
@@ -77,8 +82,13 @@ def math_function(hmm)
 	ch = div%11
 		if ch == 10
 			ch = "x"
-		end	
-			if ch == hmm[hmm.length - 1].to_i
+		end
+		p "#{hmm[hmm.length - 1]} looooooooooooook hereerererererr"
+		if hmm[hmm.length - 1] == "X"
+			hmm[hmm.length - 1] = "x"
+		end
+		p "#{hmm[hmm.length - 1]} looooooooooooook hereerererererr"	
+			if ch == hmm[hmm.length - 1]
 				 true
 			elsif ch == hmm[hmm.length - 1]
 				 true	
