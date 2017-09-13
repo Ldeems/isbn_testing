@@ -5,7 +5,7 @@ require "csv"
 require 'rubygems'
 
 require 'aws-sdk'
-load "./local_env.rb"
+load './local_env.rb' if File.exist?('./local_env.rb')
  
 enable :sessions
 
