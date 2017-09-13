@@ -5,6 +5,7 @@ require "csv"
 require 'rubygems'
 require 'aws/s3'
 require 'aws-sdk'
+load "./local_env.rb"
  
 enable :sessions
 
