@@ -26,13 +26,17 @@ def get_file()
    s3 = Aws::S3::Client.new
   resp = s3.get_object(bucket:'lukesathorbucket', key:'myfile.csv')
   isbn = resp.body.read
-  if isbn == nil
-    list = nil
-  else
-    list = isbn.split
-      
- end
+  
+jim = isbn.split
+      list = []
+    jim.each do |item|
+    item.gsub!(/"/, '')
+    list << item
+    end
+    p "#{list}!!!!!!!!!!!!!!!!"
   list
+ 
+  
 end
 
 
