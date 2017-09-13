@@ -3,7 +3,7 @@ require_relative "isbn_method.rb"
 require_relative "send.rb"
 require "csv"
 require 'rubygems'
-require 'aws/s3'
+
 require 'aws-sdk'
 load "./local_env.rb"
  
