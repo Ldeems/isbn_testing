@@ -16,11 +16,26 @@ Aws::S3::Client.new(
 # string data
 obj.put(body: 'some code here to show something being added to the bucket')
 # push entire file 
-    File.open('myfile.csv', 'rb') do |file|
+    File.open(myfile.csv, 'rb') do |file|
       obj.put(body: file)
     end
 end
-connect_to_s3()
+
+
+def get_file()
+   s3 = Aws::S3::Client.new
+  resp = s3.get_object(bucket:'lukesathorbucket', key:'myfile.csv')
+  isbn = resp.body.read
+  if isbn == nil
+    list = nil
+  else
+    list = isbn.split
+      
+ end
+  list
+end
+
+
 
 # require 'rubygems'
 # require 'aws-sdk'

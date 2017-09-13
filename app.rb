@@ -1,29 +1,16 @@
 require "sinatra"
 require_relative "isbn_method.rb"
+require_relative "send.rb"
 require "csv"
 require 'rubygems'
 require 'aws/s3'
-load "./local_env.rb"
-def send_data_to_s3_bucket
-    AWS::S3::Base.establish_connection!(
-    :access_key_id => ENV['S3_KEY'],
-    :secret_access_key => ENV['S3_SECRET']  
-    )
-    file = "isbnres.csv" 
-    bucket = 'lukesbuckeet'
-    csv = AWS::S3::S3Object.value(file, bucket)
-    csv << "some code here to show something being added to the bucket."+ "\n"
-    AWS::S3::S3Object.store(File.basename(file), 
-        csv, 
-        bucket, 
-        :access => :public_read)
-end 
+ 
 enable :sessions
 
 
 get "/" do
-	
-	erb :number
+	list = get_file()
+	erb :number, locals:{list:list}
 end
 
 post '/number' do
@@ -32,9 +19,10 @@ post '/number' do
 end
 
 get '/results' do
-
+	
+	ready = get_file()
 	result = isbn_size_check(session[:number])
-	erb :results, locals:{number:session[:number], result:result}
+	erb :results, locals:{number:session[:number], result:result, ready:ready}
 end	
 
 post '/csv' do
@@ -51,7 +39,6 @@ post '/meth' do
 end
 
 get '/magic' do
-	send_data_to_s3_bucket
 	arr = []
 	magiclist = CSV.read("input_isbn_file.csv")
 	magiclist.each do |x|

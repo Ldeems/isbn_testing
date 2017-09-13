@@ -1,1 +1,28 @@
 <%=number%> is <%=result%>
+
+<br>
+<br>
+<br>
+<br>
+<%newnum = ready.count%>
+<br><br>
+<%ready << "#{newnum},#{number},#{result}"%>
+New list<br><br>
+<%ready.each do |num|%>
+	<%=num%><br>
+<%end%>	
+<%CSV.open("fullcsv.csv", "w") do |csv|%>
+	<%ready.each do |n|%>
+	  <%csv << [n]%>
+	<%end%>	
+<%end%>
+<%Aws::S3::Client.new()%>
+<%file = "myfile.csv"%> 
+  <%bucket = 'lukesathorbucket'%>
+  <%s3 = Aws::S3::Resource.new(region: 'us-east-2')%>
+  <%obj = s3.bucket(bucket).object(file)%>
+    <%File.open('fullcsv.csv', 'rb') do |file|%>
+      <%obj.put(body: file)%>
+    <%end%>
+
+
