@@ -75,26 +75,3 @@ end
 
 
 
-# require 'rubygems'
-# require 'aws/s3'
-# require 'csv'
-# load "./local_env.rb" 
-
-
-# def send_data_to_s3_bucket
-#     AWS::S3::Base.establish_connection!(
-#     :access_key_id => 'AKIAILNWCFWBFHOUHCZA',
-#     :secret_access_key => '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',
-    
-#     )
-#     file = "isbnres.csv" 
-#     bucket = 'lukesathorbucket'
-#     csv = AWS::S3::S3Object.value(file, bucket)
-#     csv << "some code here to show something being added to the bucket."+ "\n"
-#     AWS::S3::S3Object.store(File.basename(file), 
-#         csv, 
-#         bucket, 
-#         :access => :public_read)
-# end 
-    
-# send_data_to_s3_bucket
