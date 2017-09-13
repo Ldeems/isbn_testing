@@ -7,7 +7,7 @@
 <%newnum = ready.count%>
 <br><br>
 <%ready << "#{newnum},#{number},#{result}"%>
-New list<br><br>
+New list, with your nuber now added<br><br>
 <%ready.each do |num|%>
 	<%=num%><br>
 <%end%>	
@@ -16,6 +16,7 @@ New list<br><br>
 	  <%csv << [n]%>
 	<%end%>	
 <%end%>
+
 <%Aws::S3::Client.new()%>
 <%file = "myfile.csv"%> 
   <%bucket = 'lukesathorbucket'%>
